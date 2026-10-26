@@ -1,0 +1,103 @@
+/* =========================================================
+   static/css/estilos.css — el diseño propio del sistema
+   Bootstrap pone la base; aquí solo personalizamos.
+   ========================================================= */
+
+/* 1. Variables: cambia un color aquí y cambia en todo el sistema */
+:root {
+  --sidebar-ancho: 250px;
+  --sidebar-fondo: #0f172a;     /* azul casi negro */
+  --sidebar-texto: #94a3b8;     /* gris claro */
+  --color-principal: #2563eb;   /* azul de los botones y del menú activo */
+  --fondo: #f1f5f9;             /* gris muy suave detrás de las tarjetas */
+  --borde: #e2e8f0;
+}
+
+body {
+  background: var(--fondo);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* 2. Menú lateral */
+.sidebar {
+  --bs-offcanvas-width: var(--sidebar-ancho);       /* ancho cuando se abre en el celular */
+  width: var(--sidebar-ancho);
+  background-color: var(--sidebar-fondo) !important; /* Bootstrap lo pone transparente */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 992px) {          /* pantallas grandes: el menú queda fijo a la izquierda */
+  .sidebar { position: sticky; top: 0; height: 100vh; flex-shrink: 0; }
+}
+.sidebar-marca {
+  display: flex; align-items: center; gap: .75rem;
+  padding: 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.sidebar-marca i { font-size: 1.75rem; color: #60a5fa; }
+.sidebar-marca small { color: var(--sidebar-texto); }
+.sidebar-menu { padding: .5rem .75rem; flex-grow: 1; overflow-y: auto; }
+.sidebar-titulo {
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .08em;
+  color: #64748b; padding: 1rem .75rem .4rem;
+}
+.sidebar-link {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .6rem .75rem; margin-bottom: 2px; border-radius: .5rem;
+  color: var(--sidebar-texto); text-decoration: none; font-size: .925rem;
+  transition: background .15s, color .15s;
+}
+.sidebar-link:hover { background: rgba(255, 255, 255, .06); color: #fff; }
+.sidebar-link.activo { background: var(--color-principal); color: #fff; }
+.sidebar-pie {
+  padding: 1rem 1.25rem; font-size: .75rem; color: #64748b;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+/* 3. Barra superior */
+.topbar {
+  position: sticky; top: 0; z-index: 1020;
+  display: flex; align-items: center; gap: .75rem;
+  background: #fff; padding: .75rem 1.5rem; border-bottom: 1px solid var(--borde);
+}
+.topbar-titulo { font-size: 1.1rem; font-weight: 600; margin: 0; }
+.usuario-btn { display: flex; align-items: center; gap: .6rem; border: 0; }
+.avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff; font-weight: 700;
+}
+
+/* 4. Contenido de cada página */
+.min-w-0 { min-width: 0; }            /* evita que una tabla ancha rompa el diseño */
+.contenido { padding: 1.5rem; }
+.contenido > h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+.contenido > .table {                 /* las tablas de los CRUD se ven como tarjeta */
+  background: #fff; border-collapse: separate; border-spacing: 0;
+  border-radius: .75rem; overflow: hidden; box-shadow: 0 1px 3px rgba(15, 23, 42, .08);
+}
+
+/* 5. Tarjetas del dashboard */
+.card { border: 0; border-radius: .9rem; box-shadow: 0 1px 3px rgba(15, 23, 42, .08); }
+.card-header { background: #fff; border-bottom: 1px solid var(--borde); font-weight: 600; }
+.kpi-icono {
+  width: 48px; height: 48px; border-radius: .75rem; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+}
+.kpi-valor { font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.kpi-etiqueta { color: #64748b; font-size: .85rem; }
+
+/* 6. Login */
+.login-caja { min-height: 85vh; display: flex; align-items: center; justify-content: center; }
+.login-card { width: 100%; max-width: 420px; }
+.login-logo {
+  width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff; font-size: 2rem;
+}
+
+/* 7. Pie de página */
+.pie {
+  padding: 1rem 1.5rem; font-size: .8rem; color: #94a3b8;
+  background: #fff; border-top: 1px solid var(--borde);
+}

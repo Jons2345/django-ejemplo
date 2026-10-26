@@ -1,0 +1,17 @@
+{% extends "facturacion/base.html" %}
+
+{% block titulo %}Dashboard · {{ NOMBRE_SISTEMA }}{% endblock %}
+{% block encabezado %}Dashboard{% endblock %}
+
+{% block contenido %}
+<div class="card">
+  <div class="card-body p-4">
+    <h2 class="h4 fw-bold">¡Bienvenido, {{ user.username }}! 👋</h2>
+    <p class="text-secondary mb-0">
+      {{ NOMBRE_SISTEMA }} ya funciona. Las estadísticas aparecerán aquí cuando hagas el
+      módulo <strong>Dashboard</strong>. Mientras tanto, el menú de la izquierda irá
+      mostrando cada módulo que termines.
+    </p>
+  </div>
+</div>
+{% endblock %}
